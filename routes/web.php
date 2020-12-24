@@ -25,8 +25,13 @@ Route::post('/login',[
     'as'	=>	'login'
 ]);
 
+Route::post('/pay',[
+    'uses'	=>	'PaymentController@pay',
+    'as'	=>	'pay'
+]);
 
-Route::get('portfolio', 'PortfolioController@show')->name('portfolio');
+
+
 
 
 

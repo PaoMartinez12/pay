@@ -36,7 +36,7 @@ class LoginController extends Controller
              return back();   
          }else  {
                 //Guardar id_client en session laravel   
-                return view('welcome',compact('idClientUcrm'));
+                return view('payment',compact('idClientUcrm'));
          }
 
      } catch (ClientException $e) {
