@@ -15,7 +15,8 @@ class PaymentController extends Controller
 
         //dd("Dentro de PlaymentController; Id de factura mas reciente: ".$id);
 
-        return view('payment');
+        //return view('payment');
+        return view('pay');
     }
 
 
