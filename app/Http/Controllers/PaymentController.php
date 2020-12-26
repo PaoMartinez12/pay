@@ -9,6 +9,16 @@ use Illuminate\Support\Str;
 
 class PaymentController extends Controller
 {
+
+    //Llama al formulario de Pago
+    public function payForm($id){
+
+        //dd("Dentro de PlaymentController; Id de factura mas reciente: ".$id);
+
+        return view('payment');
+    }
+
+
     //
     public function pay(Request $request)
     {
@@ -19,6 +29,8 @@ class PaymentController extends Controller
         $payment_info['titular'] = $incoming['titular'];
         dd($payment_info);
     }
+
+    
 
    
 }

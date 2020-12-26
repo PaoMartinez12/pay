@@ -73,7 +73,7 @@
                     <div class="row">
                         <div class="col-md-6 offset-md-5">
                             @if ($invoice->status == '1')
-                                <a class="btn btn-primary" href="{{ route('pay',$invoice->id) }}" role="button">Pagar</a>
+                                <a class="btn btn-primary" href="{{ route('payForm',$invoice->id) }}" role="button">Pagar</a>
                             @endif   
                         </div>
                     </div>

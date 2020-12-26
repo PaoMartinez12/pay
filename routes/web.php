@@ -25,10 +25,6 @@ Route::post('/login',[
     'as'	=>	'login'
 ]);
 
-Route::post('/pay',[
-    'uses'	=>	'PaymentController@pay',
-    'as'	=>	'pay'
-]);
 
 /* ========= PANEL DE CLIENTE ========== */
     //Informacion de Inicio de Cliente
@@ -40,17 +36,30 @@ Route::get('/cliente/invoice/{id}',[
             'uses'	=>	'ClientController@detailInvoice',
             'as'	=>	'invoice'
         ]);
-//Route::get('cliente/details_invoices','ClientController@detailInvoice')->name('invoice');
-//Formulario de pago
-//Route::get('cliente/payform','ClientController@payForm')->name('pay');
     //Formulario de Pago
+    /*
 Route::get('/cliente/payform/{id}',[
     'uses'	=>	'ClientController@payForm',
     'as'	=>	'pay'
 ]);
+*/
 
 /* ===================================== */
 
+/* ======== FUNCIONES DE PAGO ========== */
+
+    //Formulario de Pago
+Route::get('/cliente/payform/{id}',[
+    'uses'	=>	'PaymentController@payForm',
+    'as'	=>	'payForm'
+]);
+    //
+Route::post('/pay',[
+    'uses'	=>	'PaymentController@pay',
+    'as'	=>	'pay'
+]);
+
+/* ===================================== */
 
 
 

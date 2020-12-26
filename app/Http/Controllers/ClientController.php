@@ -123,10 +123,12 @@ class ClientController extends Controller
     }
 
     //Llama al formulario de Pago
-    public function payForm($id){
+        /*
+        public function payForm($id){
 
-        dd("Id de factura mas reciente: ".$id);
+            dd("Id de factura mas reciente: ".$id);
 
-        return view('cliente.pay_form');
-    }
+            return view('cliente.pay_form');
+        }
+        */
 }
