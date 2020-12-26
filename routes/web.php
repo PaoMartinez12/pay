@@ -27,8 +27,10 @@ Route::post('/login',[
 
 
 /* ========= PANEL DE CLIENTE ========== */
+    //Pagina de Inicio
+Route::get('cliente/start', 'ClientController@index')->name('home');
     //Informacion de Inicio de Cliente
-Route::get('cliente/home', 'ClientController@index')->name('home');
+Route::get('cliente/info', 'ClientController@info')->name('info');
     //Mostrar todas las Facturas
 Route::get('cliente/invoices', 'ClientController@allInvoices')->name('all_Invoices');
     //Detalle de la Factura seleccionada
@@ -36,13 +38,6 @@ Route::get('/cliente/invoice/{id}',[
             'uses'	=>	'ClientController@detailInvoice',
             'as'	=>	'invoice'
         ]);
-    //Formulario de Pago
-    /*
-Route::get('/cliente/payform/{id}',[
-    'uses'	=>	'ClientController@payForm',
-    'as'	=>	'pay'
-]);
-*/
 
 /* ===================================== */
 

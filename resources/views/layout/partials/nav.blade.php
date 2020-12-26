@@ -10,10 +10,10 @@
         
         <ul class="list-unstyled components mb-5">
             <li class="active">
-                <a href="#"><span class="fa fa-home mr-3"></span> Home</a>
+                <a href="{{ route('home') }}"><span class="fa fa-home mr-3"></span> Home</a>
             </li>
             <li>
-                <a href="{{ route('home') }}"><span class="fa fa-user mr-3"></span> Mi Perfil </a>
+                <a href="{{ route('info') }}"><span class="fa fa-user mr-3"></span> Mi Perfil </a>
             </li>
             <li>
                 <a href="{{ route('all_Invoices') }}"><span class="fa fa-file-text-o mr-3"></span> Mis Facturas </a>
