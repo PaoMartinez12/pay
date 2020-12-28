@@ -67,26 +67,50 @@ class ClientController extends Controller
         //dd(json_decode($response->getBody()->getContents()));
 
         $invoices = json_decode($response);
+
         //factura reciente
-        $last_invoice = $invoices[count($invoices)-1];
+        if (count($invoices) == 0) {
+            //dd("No hay facturas");    
+            $last_invoice = $invoices;
+
+            $info = [
+                'clientName'=> $info_client->firstName.' '.$info_client->lastName,
+                'direccion'=> $info_client->street1.', '.$info_client->street2,
+                'departamento'=>$info_client->city,
+                'email'=> $info_client->contacts[0]->email,
+                'phone'=> $info_client->contacts[0]->phone,
+                'saldo'=> $info_client->accountBalance,
+                'credito'=> $info_client->accountCredit,
+                'pendiente'=> $info_client->accountOutstanding,
+                'serviceName' => $services[0]->servicePlanName,
+                'number_invoice'=> null
+            ];
+            
+        }else{
+            //dd("Tiene al menos 1 factura");
+            $last_invoice = $invoices[count($invoices)-1];
+            
+            $info = [
+                'clientName'=> $info_client->firstName.' '.$info_client->lastName,
+                'direccion'=> $info_client->street1.', '.$info_client->street2,
+                'departamento'=>$info_client->city,
+                'email'=> $info_client->contacts[0]->email,
+                'phone'=> $info_client->contacts[0]->phone,
+                'saldo'=> $info_client->accountBalance,
+                'credito'=> $info_client->accountCredit,
+                'pendiente'=> $info_client->accountOutstanding,
+                'id_invoice'=> $last_invoice->id,
+                'serviceName' => $services[0]->servicePlanName,
+                'number_invoice'=> $last_invoice->number,
+                'total_invoice'=> $last_invoice->total
+            ];
+        }
+
         //dd($last_invoice);
 
     /*************************** */
     
-        $info = [
-            'clientName'=> $info_client->firstName.' '.$info_client->lastName,
-            'direccion'=> $info_client->street1.', '.$info_client->street2,
-            'departamento'=>$info_client->city,
-            'email'=> $info_client->contacts[0]->email,
-            'phone'=> $info_client->contacts[0]->phone,
-            'saldo'=> $info_client->accountBalance,
-            'credito'=> $info_client->accountCredit,
-            'pendiente'=> $info_client->accountOutstanding,
-            'id_invoice'=> $last_invoice->id,
-            'serviceName' => $services[0]->servicePlanName,
-            'number_invoice'=> $last_invoice->number,
-            'total_invoice'=> $last_invoice->total
-        ];
+        
         //dd($info);
         //dd($info['clientName']);
 
@@ -125,11 +149,8 @@ class ClientController extends Controller
         ])->withHeaders([
             'X-Auth-App-Key' => '71KulvlqqWo77ZDv902IpT9V+WuiD2rZjJKC+d1ociobgVtD2Gg08CQRXGU7oe9y'
         ])->get('https://ucrm.beenet.com.sv/api/v1.0/invoices/'.$id, []);
-        //dd(json_decode($response->getBody()->getContents()));
 
         $invoice = json_decode($response);
-
-        //dd($invoice);
 
         return view('cliente.details_invoice',compact('invoice'));
     }
