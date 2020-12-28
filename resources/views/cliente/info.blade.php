@@ -61,18 +61,22 @@
                     <hr>
                     <div class="row">
                         <div class="col">
-                            <h6 class="card-text"><strong>FACTURA ACTUAL - </strong> REF: {{ $info['number_invoice'] }}</h6>
+                            @isset($info['number_invoice'])
+                                <h6 class="card-text"><strong>FACTURA ACTUAL - </strong> REF: {{ $info['number_invoice'] }}</h6>
+                            @endisset
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6 class="card-text"><strong>Total:</strong></h6>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>$ {{ $info['total_invoice'] }}</h6>
-                        </div>
-                    </div>   
-                    <a href="{{ route('invoice',$info['id_invoice']) }}" class="btn btn-primary">PAGAR</a>
+                    @isset($info['number_invoice'])
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="card-text"><strong>Total:</strong></h6>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>$ {{ $info['total_invoice'] }}</h6>
+                            </div>
+                        </div>   
+                        <a href="{{ route('invoice',$info['id_invoice']) }}" class="btn btn-primary">PAGAR</a>
+                    @endisset
                 </div>
             </div>
         </div>
