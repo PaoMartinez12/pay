@@ -35,7 +35,7 @@
                     <td>
                         <a class="btn btn-primary" href="{{ route('invoice',$invoice->id) }}" role="button">Ver</a>
                         @if ($invoice->status != '3')
-                            <a class="btn btn-primary" href="{{ route('payForm',$invoice->id) }}" role="button">Pagar</a>
+                            <a class="btn btn-primary" href="{{ route('payForm',array($invoice->id, $invoice->total)) }}" role="button">Pagar</a>
                         @endif
                     </td>
                 </tr>

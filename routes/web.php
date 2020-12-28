@@ -44,7 +44,7 @@ Route::get('/cliente/invoice/{id}',[
 /* ======== FUNCIONES DE PAGO ========== */
 
     //Formulario de Pago
-Route::get('/cliente/payform/{id}',[
+Route::get('/cliente/payform/{id}/{monto}',[
     'uses'	=>	'PaymentController@payForm',
     'as'	=>	'payForm'
 ]);

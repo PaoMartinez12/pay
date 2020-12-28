@@ -53,6 +53,13 @@
                                         <label><strong>CARD OWNER</strong></label>
                                         <input type="text" class="form-control" placeholder="Card Owner Names" id="titular" name="titular"/>
                                     </div>
+									
+                                </div>
+								<div class="col-xs-12 col-md-12">
+                                    <div class="form-group">
+                                        <label><strong>Monto</strong></label>
+                                        <input type="text" class="form-control" placeholder="monto" id="momto" name="monto" value="{{$monto}}"/>
+                                    </div>
                                 </div>
                             </div>
                             <hr>
