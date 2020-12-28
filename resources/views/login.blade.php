@@ -1,48 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>   
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Login</title>
+      <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="{{ asset('css/login/login.css') }}">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    </head>
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-
-<div class="limiter">
-  <div class="container-login100" >
-    <div class="wrap-login100 p-t-30 p-b-50">
-        <br><br><br>
-      <form method="POST" action="{{ route('login') }}" id="frm_login"  class="login100-form validate-form p-b-33 p-t-5" style="background: #1C1C1C;">
-        {{ csrf_field() }}
-        <div class="login100-pic js-tilt" data-tilt   >
-          <center>
-            <img src=""  alt="IMG"   height="60px" width="250px">
-          </center>
-          
+    <body>
+        <div class="container">
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="card">
+                      <form class="box"  method="POST" action="{{ route('login') }}" id="frm_login">
+                        {{ csrf_field() }}
+                          <h1>Login</h1>
+                          <p class="text-muted"> Please enter your login and password!</p> 
+                          <input type="text" name="username" id="username" placeholder="Usuario">
+                           <input type="password" name="password" id="password" placeholder="Password"> 
+                           <a class="forgot text-muted" href="#">Forgot password?</a> 
+                           <input type="submit" name="" value="Login" href="#">
+                          <div class="col-md-12">
+                              <ul class="social-network social-circle">
+                                  <li><a href="#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                  <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                  <li><a href="#" class="icoGoogle" title="Google +"><i class="fab fa-google-plus"></i></a></li>
+                              </ul>
+                          </div>
+                      </form>
+                  </div>
+                </div>
+            </div>
         </div>
-        <div class="wrap-input100 validate-input" data-validate = "Enter username">
-          <input id="user"  class="input100" type="text" name="username" placeholder="Usuario" >
-          <span class="focus-input100" data-placeholder="&#xe82a;"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input" data-validate="Enter password">
-          <input id="passw" class="input100" type="password" name="password" placeholder="Contraseña">
-          <span class="focus-input100" data-placeholder="&#xe80f;"></span>
-        </div>
-
-        <div class="container-login100-form-btn m-t-32">
-          <button  class="login100-form-btn">
-            Ingresar
-          </button>
-           <!-- muestra el input de token -->
-           <div id="Token"></div>
-        </div>
-
-
-
-      </form>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
+    </body>
+</html>
