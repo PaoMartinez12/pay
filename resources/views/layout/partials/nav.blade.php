@@ -19,7 +19,7 @@
                 <a href="{{ route('all_Invoices') }}"><span class="fa fa-file-text-o mr-3"></span> Mis Facturas </a>
             </li>
             <li>
-                <a href="#"><span class="fa fa-sign-out mr-3"></span> Cerrar Sesion </a>
+            <a href="{{ route('logout') }}"><span class="fa fa-sign-out mr-3"></span> Cerrar Sesion </a>
             </li>
         </ul>
 

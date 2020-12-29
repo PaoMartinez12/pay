@@ -56,6 +56,11 @@ Route::post('/pay',[
 
 /* ===================================== */
 
-
+//logout
+    //Funcion de cerrar sesion 
+    Route::get('logout',[
+        'uses'	=>	'LoginController@logout',
+        'as'	=>	'logout'
+    ]);
 
 ?>
