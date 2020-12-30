@@ -19,7 +19,6 @@ class LoginController extends Controller
         $login_info['password'] = $incoming['password'];
 
             try {
-
                 //se hace la llamada a la api del ucrm
                 $response = Http::withOptions([
                     'debug' => false,
@@ -31,20 +30,17 @@ class LoginController extends Controller
                         'username'=> $login_info['username'] ,
                         'password'=>  $login_info['password']
                 ]);
-
-
-                //Se obtiene el id del cliente 
-                $idClientUcrm = json_decode($response->getBody()->getContents())->id;
-                //Se crea la sesion
-                $request->session()->put('idClientUcrm', $idClientUcrm);
                 
+               
                 //Condiciona o verifica que el cliente exista o no en la base de datos
-
                 //En caso falle retorna al login
                 if($response->failed()){     
                     return back();   
                 }else  { 
-                        return redirect()->route('home');
+                    //si el uausrio existe crear la sesion
+                    $idClientUcrm = json_decode($response->getBody()->getContents())->id;
+                    $request->session()->put('idClientUcrm', $idClientUcrm);
+                    return redirect()->route('home');
                 }
 
             } catch (ClientException $e) {
