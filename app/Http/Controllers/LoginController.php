@@ -9,9 +9,22 @@ use Session;
 
 class LoginController extends Controller
 {
-    //Funcion login 
+    //FUNCION LOGIN
     public function login(Request $request)
     {
+
+        //PASO 1
+        //======= Valida si existe la sesion ======/
+        $auth=session('idClientUcrm');
+        if (is_null($auth ))
+        {
+            return redirect('/');
+        }
+        //=========================================/
+
+
+
+        //PASO 2
         //se capturan todos los datos del formulario
         $incoming = $request->all();
         //se declaran las variables de los respectivos campos
@@ -31,7 +44,6 @@ class LoginController extends Controller
                         'password'=>  $login_info['password']
                 ]);
                 
-               
                 //Condiciona o verifica que el cliente exista o no en la base de datos
                 //En caso falle retorna al login
                 if($response->failed()){     
@@ -40,7 +52,8 @@ class LoginController extends Controller
                     //si el uausrio existe crear la sesion
                     $idClientUcrm = json_decode($response->getBody()->getContents())->id;
                     $request->session()->put('idClientUcrm', $idClientUcrm);
-                    return redirect()->route('home');
+
+                    return redirect()->route('home');     
                 }
 
             } catch (ClientException $e) {
@@ -48,9 +61,9 @@ class LoginController extends Controller
             }  //fin de try-catch
     } //fin de funcion login
 
+    //************************************************************************************************************* */
 
-
-    //Funcion logout
+    //FUNCION LOGOUT
     public function logout()
      {
         //Destuye la sesion 
@@ -59,5 +72,8 @@ class LoginController extends Controller
         //redirecciona a la pagina de login
         return redirect('/');
      }  //fin de funcion logout
+
+
+
 
 }//fin de clase LoginController

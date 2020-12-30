@@ -7,30 +7,45 @@ use Illuminate\Support\Facades\Http;
 
 class ClientController extends Controller
 {
+    public function __construct()
+    {
+        # code...
+        
+    }
+
+
+
     public function index(Request $request){
 
-        return view('cliente.start');
 
-    }
+       //======= Valida si existe la sesion ======/        
+        $auth=session('idClientUcrm');
+        if (is_null($auth ))
+        {
+            return redirect('/');
+        }else{
+
+            //si existe redirecciona a la pagina cliente.start
+            return view('cliente.start');
+        }
+         //========================================//
+
+      
+    }//fin funcion index
 
         //Informacion
     public function info(){
-    // UCRM Login
-        /*
-        $response = Http::withOptions([
-            'debug' => false,
-            'verify' => false
-        ])->withHeaders([
-            'X-Auth-App-Key' => '71KulvlqqWo77ZDv902IpT9V+WuiD2rZjJKC+d1ociobgVtD2Gg08CQRXGU7oe9y'
-        ])->post('https://ucrm.beenet.com.sv/api/v1.0/clients/authenticated', [
-                'username'=>'mmiranda',
-                'password'=>'12345678'
-        ]);
-        //dd(json_decode($response->getBody()->getContents())->id);
-        $id_client = json_decode($response->getBody()->getContents())->id;
-        //Guardar id_client en session laravel
-        $request->session()->put('id_client', $id_client);
-        //dd(session('id_client'));
+
+        //======= Valida si existe la sesion ======/
+            $auth=session('idClientUcrm');
+    
+            if (is_null($auth ))
+            {
+                return redirect('/');
+            }
+        //========================================//
+
+
 
     /************************************/
     // UCRM Get Client Info
@@ -121,8 +136,21 @@ class ClientController extends Controller
         
     }
 
+
+
+
         //Todas las Facturas
     public function allInvoices(){
+
+
+         //======= Valida si existe la sesion ======/
+         $auth=session('idClientUcrm');
+    
+         if (is_null($auth ))
+         {
+             return redirect('/');
+         }
+        //========================================//
 
         // UCRM Get Client Invoices
         $response = Http::withOptions([
@@ -136,7 +164,8 @@ class ClientController extends Controller
         $invoices = json_decode($response);
         //dd($invoices);
 
-        return view('cliente.all_invoices',compact('invoices'));
+
+      
     }
 
         //Detalle de Factura
@@ -151,8 +180,11 @@ class ClientController extends Controller
         ])->get('https://ucrm.beenet.com.sv/api/v1.0/invoices/'.$id, []);
 
         $invoice = json_decode($response);
+        
+            return view('cliente.details_invoice',compact('invoice'));
 
-        return view('cliente.details_invoice',compact('invoice'));
+        
+
     }
 
 }
