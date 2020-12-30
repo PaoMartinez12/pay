@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text-white bg-dark ">
                     <h6 class="card-text"><strong>No. Factura - {{ $invoice->number }}</strong></h6>
                 </div>
                 <div class="card-body">
@@ -31,8 +31,8 @@
                     <hr>
                     <div class="row">
                         <div class="col">
-                            <table class="table">
-                                <thead class="thead-light">
+                            <table class="table" id="facturaInfo">
+                                <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">Tipo</th>
                                         <th scope="col">Etiqueta</th>
@@ -66,7 +66,8 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-6 offset-md-10">
-                            <h6 class="card-text"><strong>Total:</strong> $ {{ $invoice->total}}</h6>
+                                <thead class="thead-dark" >
+                            <h6 class="card-text "><strong>Total:</strong> $ {{ $invoice->total}}</h6>
                         </div>
                     </div>
                     <hr>

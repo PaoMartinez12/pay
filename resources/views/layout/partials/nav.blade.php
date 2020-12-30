@@ -1,12 +1,12 @@
 <nav id="sidebar" class="" style="background-color: black">
     <div class="custom-menu">
-        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+        <button type="button" id="sidebarCollapse" class="btn ">
             <i class="fa fa-bars"></i>
             <span class="sr-only">Toggle Menu</span>
         </button>
     </div>
     <div class="p-4">
-        <h1><a href="#" class="logo">Beenet</a></h1>
+    <h1><a href="#" class="logo"><img src="{{asset('img/logos/Icono.jpg')}}"  width="55px" height="50px"> Beenet</a></h1>
         
         <ul class="list-unstyled components mb-5">
             <li class="active">

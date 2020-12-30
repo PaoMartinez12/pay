@@ -1,0 +1,28 @@
+/*===== start.blade=====*/
+#btn_verFacturas{
+    background: #fc8621;
+    position: relative;
+top: 40px; left: 40px; right: 0;;
+}
+
+
+#div_container{
+     background:#393b44;
+     
+}
+
+.title, .descripcion{
+    color: white;
+}
+
+
+#sidebarCollapse{
+    background: #fc8621;
+    color: white;
+}
+
+#facturasDetalle,#facturaInfo {
+    text-align: center;
+}
+
+

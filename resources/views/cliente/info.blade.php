@@ -4,8 +4,8 @@
     <h2 class="mb-4">Mi Perfil</h2>
     <div class="row">
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
+            <div class="card ">
+                <div class="card-header text-white bg-dark ">
                     <h6 class="card-text"><strong>INFORMACION PERSONAL</strong></h6>
                 </div>
                 <div class="card-body">
@@ -18,14 +18,14 @@
                             <h6 class="card-text"><strong>Telefono:</strong> {{ $info['phone'] }} </h6>
                         </div>
                         
-                    </div>
+                    </div >
                     <hr>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text-white bg-dark ">
                     <h6 class="card-text"><strong>INFORMACION DE SERVICIO</strong></h6>
                 </div>
                 <div class="card-body">

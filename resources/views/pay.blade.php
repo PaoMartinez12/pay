@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="page-header">
-        <h4>Credit Card Payment Form <!-- small>A responsive credit card payment template</small--></h4>
+        <h4>Formulario de pago <!-- small>A responsive credit card payment template</small--></h4>
         <hr>
     </div>
     
@@ -12,20 +12,20 @@
         <div class="row">
             <div class="col-xs-12 col-md-5 offset-md-3">
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="text-center">Payment Details</h5>
-                        <img class="img-fluid cc-img" src="http://www.prepbootstrap.com/Content/images/shared/misc/creditcardicons.png">
+                    <div class="card-header ">
+                        
+                        <img class="img-fluid cc-img" src="{{asset('img/logos/metodosPago.png')}}">
                     </div>
                     
-                    <div class="card-body">
+                    <div class="card-body text-white bg-dark  ">
                         <form role="form" method="POST" action="{{ route('pay') }}">
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-xs-12 col-md-12">
                                     <div class="form-group">
-                                        <label><strong>CARD NUMBER</strong></label>
+                                        <label><strong>Numero de tarjeta</strong></label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Valid Card Number" id="creditcard" name="creditcard"/>
+                                            <input type="text" class="form-control" placeholder="0000 0000 0000 0000" id="creditcard" name="creditcard" required/>
                                             <div class="input-group-append">
                                                 <span class="input-group-text fa fa-credit-card"></span>
                                             </div>
@@ -36,34 +36,44 @@
                             <div class="row">
                                 <div class="col-xs-7 col-md-7">
                                     <div class="form-group">
-                                        <label><strong><span class="hidden-xs">EXPIRATION</span><span class="hidden-xs-inline">EXP</span> DATE</strong></label>
-                                        <input type="text" class="form-control" placeholder="MM / YY" id="expiracion" name="expiracion"/>
+                                        <label><strong><span class="hidden-xs"> Fecha de Expiración</span><span class="hidden-xs-inline"></span> </strong></label>
+                                        <input type="text" class="form-control" placeholder="MM / YY" id="expiracion" name="expiracion" required/>
                                     </div>
                                 </div>
                                 <div class="col-xs-5 col-md-5 pull-right">
                                     <div class="form-group">
-                                        <label><strong>CV CODE</strong></label>
-                                        <input type="text" class="form-control" placeholder="CVC" id="cvcode" name="cvcode"/>
+                                        <label><strong>Codigo CV </strong></label>
+                                        <input type="text" class="form-control" placeholder="CVC" id="cvcode" name="cvcode" required/>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xs-12 col-md-12">
                                     <div class="form-group">
-                                        <label><strong>CARD OWNER</strong></label>
-                                        <input type="text" class="form-control" placeholder="Card Owner Names" id="titular" name="titular"/>
+                                        <label><strong>Propietario</strong></label>
+                                        <input type="text" class="form-control" placeholder="Nombre propietario" id="titular" name="titular" required/>
                                     </div>
 									
                                 </div>
-								<div class="col-xs-12 col-md-12">
+								{{--<div class="col-xs-12 col-md-12">
                                     <div class="form-group">
                                         <label><strong>Monto</strong></label>
-                                        <input type="text" class="form-control" placeholder="monto" id="momto" name="monto" value="{{$monto}}"/>
+                                        <input type="text" class="form-control" placeholder="monto" id="momto" name="monto" value="$ {{$monto}}" required/>
+                                    </div>
+                                </div>--}}
+                                <div class="col-xs-12 col-md-12">
+                                    <label><strong>Monto</strong></label>
+                                    <div class="input-group">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text fa fa-dollar"></span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="monto" id="momto" name="monto" value="{{$monto}}" required/>
                                     </div>
                                 </div>
+
                             </div>
                             <hr>
-                            <input type="submit" value="Payment"/>
+                            <center><input class="btn btn-primary" type="submit" value="Payment"/><center>
                         </form>
                     </div>
                 </div>

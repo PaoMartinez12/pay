@@ -3,8 +3,8 @@
 @section('content')
     <h2 class="mb-4">Mis Facturas</h2>
 
-    <table class="table">
-        <thead class="thead-dark">
+    <table class="table" id="facturasDetalle">
+        <thead class="thead-dark" >
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Numero de Factura</th>
