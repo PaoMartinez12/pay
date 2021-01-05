@@ -13,15 +13,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
 
-        //PASO 1
-        //======= Valida si existe la sesion ======/
-        $auth=session('idClientUcrm');
-        if (is_null($auth ))
-        {
-            return redirect('/');
-        }
-        //=========================================/
-
+       
 
 
         //PASO 2
