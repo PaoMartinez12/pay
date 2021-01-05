@@ -164,7 +164,7 @@ class ClientController extends Controller
         $invoices = json_decode($response);
         //dd($invoices);
 
-
+        return view('cliente.all_invoices',compact('invoices'));
       
     }
 
